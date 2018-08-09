@@ -29,7 +29,7 @@ else
 foreach($backupfile in $backupfiles)
 {
 
-    if($backupfile.LastWriteTime -eq $maxdate.Maximum)
+    if($backupfile.LastWriteTime.DateTime -eq $maxdate.Maximum.DateTime)
     {
         $filepath = "$backuppath\$databasename\FULL\$backupfile";
         Set-AzureStorageBlobContent -File $filepath -Context $stctxt -Container $databasename -Force;
